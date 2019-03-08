@@ -4,9 +4,8 @@ export enum ActionTypes {
   CONFIG_SET = 'CONFIG_SET',
 }
 
-export const setConfig = (key: string, value: string) =>
+export const setConfig = (value: string) =>
   action(ActionTypes.CONFIG_SET, {
-    key,
     value,
   });
 

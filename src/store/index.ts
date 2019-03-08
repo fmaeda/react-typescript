@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { combineReducers, createStore, applyMiddleware, Reducer } from 'redux';
 import { StateType } from 'typesafe-actions';
 
-import { captchaReducer } from 'src/store/captcha';
+import { authReducer } from 'src/store/auth';
 import { configReducer } from 'src/store/config';
 
 const middlewares = [thunk];
@@ -28,7 +28,7 @@ const localReducers = combineReducers({
 });
 
 const sessionReducers = combineReducers({
-  captcha: captchaReducer,
+  auth: authReducer,
 });
 
 export type RootState = {

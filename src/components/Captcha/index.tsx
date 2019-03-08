@@ -2,46 +2,44 @@ import React from 'react';
 import { ThunkActionDispatch } from 'redux-thunk';
 import { connect } from 'react-redux';
 import { RootState } from 'src/store';
-import { captchaActions, captchaAsyncActions } from 'src/store/captcha';
+import { authActions, authAsyncActions } from 'src/store/auth';
 
 import { Container } from './styled';
 
 const mapStateToProps = ({
   session: {
-    captcha: { selection },
+    auth: { login },
   },
 }: RootState) => ({
-  selection,
+  login,
 });
 
 type Props = {
   description: string;
-  select: typeof captchaActions.captchaSelect;
-  asyncSelect: ThunkActionDispatch<typeof captchaAsyncActions.fetchCaptcha>;
+  setLogin: typeof authActions.setLogin;
+  asyncLogin: ThunkActionDispatch<typeof authAsyncActions.fetchLogin>;
 } & ReturnType<typeof mapStateToProps>;
 
 const Captcha: React.FunctionComponent<Props> = ({
   description,
-  selection,
-  select,
-  asyncSelect,
+  login,
+  setLogin,
+  asyncLogin,
 }) => (
   <Container>
     {description}
-    <button
-      onClick={() => select(selection === 'teste' ? 'nao-teste' : 'teste')}
-    >
+    <button onClick={() => setLogin(login === 'teste' ? 'nao-teste' : 'teste')}>
       Toggle
     </button>
-    <button onClick={() => asyncSelect()}>Async</button>
-    <p>Selecionado: {selection}</p>
+    <button onClick={() => asyncLogin('teste')}>Async</button>
+    <p>Login: {login}</p>
   </Container>
 );
 
 export default connect(
   mapStateToProps,
   {
-    select: captchaActions.captchaSelect,
-    asyncSelect: captchaAsyncActions.fetchCaptcha,
+    setLogin: authActions.setLogin,
+    asyncLogin: authAsyncActions.fetchLogin,
   },
 )(Captcha);

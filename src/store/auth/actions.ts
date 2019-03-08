@@ -1,16 +1,16 @@
 import { action, ActionType } from 'typesafe-actions';
 
 export enum ActionTypes {
-  CAPTCHA_SELECT = 'CAPTCHA_SELECT',
+  AUTH_LOGIN = 'AUTH_LOGIN',
 }
 
-export const captchaSelect = (selection: string) =>
-  action(ActionTypes.CAPTCHA_SELECT, {
-    selection,
+export const setLogin = (login: string) =>
+  action(ActionTypes.AUTH_LOGIN, {
+    login,
   });
 
 const actions = {
-  captchaSelect,
+  setLogin,
 };
 
 export type Action = ActionType<typeof actions>;

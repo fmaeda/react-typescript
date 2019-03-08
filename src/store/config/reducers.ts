@@ -1,10 +1,12 @@
 import { Action, ActionTypes } from './actions';
 
 export type State = {
-  [key: string]: string;
+  localConfig: string | null;
 };
 
-const DEFAULT_STATE: State = {};
+const DEFAULT_STATE: State = {
+  localConfig: null,
+};
 
 export default (state: State = DEFAULT_STATE, action: Action): State => {
   const { type, payload } = action;
@@ -12,7 +14,7 @@ export default (state: State = DEFAULT_STATE, action: Action): State => {
     case ActionTypes.CONFIG_SET: {
       return {
         ...state,
-        [payload.key]: payload.value,
+        localConfig: payload.value,
       };
     }
     default:
