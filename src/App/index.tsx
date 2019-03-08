@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Container flex={1} direction="column">
         <Header>Titulo</Header>
-        <Captcha description="Captcha testes" />
+        <Captcha description="Captcha teste" />
         <LocalUserInput />
         <SessionUserInput />
       </Container>
@@ -20,4 +20,3 @@ class App extends Component {
 }
 
 export default hot(module)(App);
-// export default App;

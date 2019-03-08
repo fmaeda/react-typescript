@@ -21,6 +21,7 @@ export default class extends React.Component<Props, State> {
     const { onButtonClick } = this.props;
     const { value } = this.state;
     onButtonClick(value);
+    this.setState({ value: '' });
   };
 
   private handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
