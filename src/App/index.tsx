@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import { Container, Header } from 'src/App/styled';
 import Captcha from 'src/components/Captcha';
 
@@ -10,7 +11,7 @@ class App extends Component {
     return (
       <Container flex={1} direction="column">
         <Header>Titulo</Header>
-        <Captcha description="Captcha teste" />
+        <Captcha description="Captcha testes" />
         <LocalUserInput />
         <SessionUserInput />
       </Container>
@@ -18,4 +19,5 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(module)(App);
+// export default App;
