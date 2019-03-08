@@ -1,5 +1,6 @@
 import styled, { CreateStyled } from '@emotion/styled/macro';
 type Theme = {
+  name: string;
   color: {
     primary: string;
     error: string;
@@ -17,6 +18,7 @@ type Theme = {
 };
 
 export const theme: Theme = {
+  name: 'default',
   color: {
     primary: 'blue',
     error: 'red',

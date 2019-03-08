@@ -10,7 +10,7 @@ class App extends Component {
   public render() {
     return (
       <Container flex={1} direction="column">
-        <Header>Titulo</Header>
+        <Header>Titulos</Header>
         <Captcha description="Captcha teste" />
         <LocalUserInput />
         <SessionUserInput />
